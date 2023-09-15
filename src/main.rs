@@ -1,6 +1,7 @@
 enum Temp {
     Celsius,
-    Fahrenheit
+    Fahrenheit,
+    Kelvin
 }
 
 fn convert_temperature(temp: i32, to: Temp) -> i32 {
@@ -12,9 +13,14 @@ fn convert_temperature(temp: i32, to: Temp) -> i32 {
         return (temp * 9/5) + 32;
     }
 
+    fn to_kelvin(temp: i32) -> i32 {
+        return temp + 273;
+    }
+
     return match to {
         Temp::Celsius => { to_celsius(temp) },
         Temp::Fahrenheit => { to_fahrenheit(temp) }
+        Temp::Kelvin => { to_kelvin(temp) }
     };
 }
 
